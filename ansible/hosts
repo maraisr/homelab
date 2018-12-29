@@ -1,3 +1,2 @@
-docker-01 ansible_ssh_host=10.1.1.51
 plex ansible_ssh_host=10.1.1.25
 pihole ansible_ssh_host=10.1.1.10
