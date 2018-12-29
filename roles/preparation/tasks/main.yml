@@ -1,0 +1,29 @@
+- name: Set timezone to UTC+10
+  become: true
+  timezone:
+    name: Australia/Brisbane
+
+- name: Ensure all packages are up to date
+  apt:
+    update_cache: yes
+    state: latest
+
+- name: Update all packages to the latest version
+  apt:
+    upgrade: dist
+
+- name: Install packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - sudo
+      - fish
+      - curl
+      - ca-certificates
+      - software-properties-common
+      - apt-transport-https
+
+- name: Set fish as the shell for the root
+  become: true
+  shell: chsh -s $(which fish);
