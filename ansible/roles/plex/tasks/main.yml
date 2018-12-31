@@ -1,0 +1,10 @@
+- name: Ensure plexmediaserver is installed
+  apt:
+    name: plexmediaserver
+    state: latest
+
+- name: Ensure plexmediaserver is enabled and started
+  service:
+    name: plexmediaserver
+    state: started
+    enabled: true

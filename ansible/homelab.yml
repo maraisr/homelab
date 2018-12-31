@@ -1,5 +1,13 @@
-- hosts: all
+- name: Global concerns
+  hosts: all
   remote_user: root
   gather_facts: true
   roles:
     - preparation
+
+- name: Setup a Plex Media Server
+  hosts: plex
+  remote_user: root
+  gather_facts: true
+  roles:
+    - plex
